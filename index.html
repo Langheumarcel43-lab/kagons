@@ -617,6 +617,113 @@
             font-weight: 700;
         }
 
+        /* --- TÉMOIGNAGES VIDÉO --- */
+        .testimonials-video {
+            background-color: var(--bg-white);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: var(--bg-white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            text-align: center;
+        }
+
+        .testimonial-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-8px);
+        }
+
+        .video-container {
+            width: 100%;
+            position: relative;
+            background: #000;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            flex: 1;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-container video {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .testimonial-info {
+            padding: 1rem;
+        }
+
+        .testimonial-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.6rem;
+            color: var(--secondary-color);
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+        }
+
+        .testimonial-role {
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .testimonial-text {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            line-height: 1.65;
+            margin-bottom: 1.2rem;
+            font-style: italic;
+        }
+
+        .stars {
+            display: flex;
+            gap: 0.5rem;
+            color: var(--accent-color);
+            font-size: 0.95rem;
+        }
+
+        .stars i {
+            color: #fbbf24;
+        }
+
+        @media (max-width: 768px) {
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* --- CONTACT --- */
         .contact { background-color: var(--bg-white); }
         
@@ -922,6 +1029,7 @@
                     <li><a href="#apropos">Agence</a></li>
                     <li><a href="#equipe">Équipe</a></li>
                     <li><a href="#realisations">Réalisations</a></li>
+                    <li><a href="#temoignages">Témoignages</a></li>
                     <li><a href="#contact" class="btn btn-primary">Contact</a></li>
                 </ul>
             </nav>
@@ -935,7 +1043,8 @@
                 <div class="hero-content">
                     <span class="badge">Agence Marketing Digital</span>
                     <h1>Propulsez votre marque avec une <span>stratégie</span></h1>
-                    <p>Kagon's Digital Agency est une agence qui allie créativité, technologie et analyse de données pour générer une croissance mesurable et durable.</p>
+                    <p>Kagon's Digital Agency accompagne les entreprises et les entrepreneurs à N'Djamena et en Afrique à générer plus de clients grâce à la publicité digitale, au SEO et aux stratégies de contenu.
+                         .</p>
                     <div class="hero-buttons">
                         <a href="#contact" class="btn btn-primary">Auditer mon projet <i class="fa-solid fa-arrow-right"></i></a>
                         <a href="#poles" class="btn btn-outline">Découvrir nos pôles</a>
@@ -1086,7 +1195,7 @@
                             <img src="https://z-cdn-media.chatglm.cn/files/955620f0-6d79-44f4-8d34-4cde92c07c2d.jpg?auth_key=1875761071-e84b3701ba1647af96a5c70e6b85dc86-0-5b9150a2dfb3acda0f858ad5e8d64642" alt="PDG" class="team-img">
                         </div>
                         <div class="team-info">
-                            <span class="team-role">PDG / Promoteur</span>
+                            <span class="team-role">Directeur Général(DG)</span>
                             <h3 class="team-name">Kagonbe Guinbé Innocent</h3>
                             <div class="team-socials">
                                 <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -1101,7 +1210,7 @@
                             <img src="https://z-cdn-media.chatglm.cn/files/d1e4bd14-359c-41ad-bb9a-7bbbee62ddcb.jpg?auth_key=1875761609-d247ed4aefe44b0ebdb5f1053a8621bf-0-d5f9d45bd92c15bcf58846bd027d0c95" alt="Directeur Général" class="team-img">
                         </div>
                         <div class="team-info">
-                            <span class="team-role">Directeur Général (DG)</span>
+                            <span class="team-role">Directeur Commercial (DC)</span>
                             <h3 class="team-name">Allasra Bonheur</h3>
                             <div class="team-socials">
                                 <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -1116,7 +1225,7 @@
                             <img src="https://z-cdn-media.chatglm.cn/files/28747b76-f09d-4480-a5ae-96e7a9c34ea9.jpg?auth_key=1875755498-9ef5612306934396b7ba1d7e44bfad61-0-44f50a08d82e51498ee27f6e45ce56da" alt="DGA & Comptable" class="team-img">
                         </div>
                         <div class="team-info">
-                            <span class="team-role">DGA & Comptable</span>
+                            <span class="team-role">Directeur Administratif & Financier (DAF)</span>
                             <h3 class="team-name">Douganon Laschakbe Bertrand</h3>
                             <div class="team-socials">
                                 <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -1130,7 +1239,7 @@
                             <img src="https://z-cdn-media.chatglm.cn/files/b2089022-878b-4bb7-ad67-aa43949366bf.jpg?auth_key=1875761609-dc083dcc0bf34f7aa49911af22a58caa-0-8b5f1b18f1c491a9c1daf13e54e9e968" alt="Responsable Marketing & Service Hôtesse" class="team-img">
                         </div>
                         <div class="team-info">
-                            <span class="team-role">Responsable Marketing & Service Hôtesse</span>
+                            <span class="team-role">Directrice Marketing & Responsable Hôtesse</span>
                             <h3 class="team-name">Morom Ndodjita Marlyse</h3>
                             <div class="team-socials">
                                 <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -1145,8 +1254,8 @@
                             <img src="Zod.jpeg" alt="Informaticien & Directeur Technique" class="team-img">
                         </div>
                         <div class="team-info">
-                            <!-- TITRE PRO MODIFIÉ : Informaticien & Directeur Technique -->
-                            <span class="team-role">Informaticien & Directeur Technique</span>
+                            <!-- TITRE PRO MODIFIÉ : Directeur Technique & Développement Web -->
+                            <span class="team-role">Directeur Technique & Développement Web</span>
                             <h3 class="team-name">Langheu Marcel</h3>
                             <div class="team-socials">
                                 <a href="#"><i class="fa-brands fa-github"></i></a>
@@ -1201,6 +1310,60 @@
                         <div class="portfolio-overlay">
                             <span class="portfolio-cat">Formation & Événements</span>
                             <h3 class="portfolio-title">Formation, Événements & Communauté</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Témoignages Vidéo Section -->
+        <section id="temoignages" class="section-padding testimonials-video">
+            <div class="container">
+                <div class="section-header">
+                    <span class="badge">Témoignages</span>
+                    <h2>Ce que nos clients en disent</h2>
+                    <p>Découvrez les histoires de réussite de nos partenaires à travers leurs témoignages vidéo.</p>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="video-container">
+                            <video width="100%" height="315" controls style="width: 100%; height: auto;">
+                                <source src="VID-20260416-WA0020.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas les vidéos HTML5
+                            </video>
+                        </div>
+                        <div class="testimonial-info">
+                            <h3>Formé en Création de Contenu</h3>
+                            <p class="testimonial-role">Content Creator</p>
+                            <p class="testimonial-text">"Grâce à Kagon's, j'ai développé mes compétences en création de contenu. Vraiment profitable !"</p>
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="video-container">
+                            <video width="100%" height="315" controls style="width: 100%; height: auto;">
+                                <source src="VID-20260416-WA0019.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas les vidéos HTML5
+                            </video>
+                        </div>
+                        <div class="testimonial-info">
+                            <h3>Formé en E-Commerce</h3>
+                            <p class="testimonial-role">Consultant</p>
+                            <p class="testimonial-text">"La formation m'a donné les outils pour accompagner les entreprises en e-commerce. Excellent !"</p>
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1304,6 +1467,7 @@
                         <li><a href="#poles">Nos Pôles</a></li>
                         <li><a href="#apropos">L'Agence</a></li>
                         <li><a href="#realisations">Réalisations</a></li>
+                        <li><a href="#temoignages">Témoignages</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
