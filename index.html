@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Kagon's Digital Agency - Agence de marketing digital 360°. Stratégie, Création, Média et Tech pour maximiser votre ROI.">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; media-src 'self' data: https:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://fonts.googleapis.com; sty[...]
     <title>Kagon's Digital Agency | Agence de Marketing 360°</title>
     
     <!-- Google Fonts -->
@@ -559,83 +559,33 @@
             color: white;
         }
 
-        /* --- RÉALISATIONS SECTION --- */
-        .realisations {
+        /* --- PORTFOLIO --- */
+        .portfolio {
             background-color: var(--bg-light);
         }
 
-        .realisations-grid {
+        .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
         }
 
-        .realisation-item {
+        .portfolio-item {
             position: relative;
             border-radius: var(--border-radius);
             overflow: hidden;
             aspect-ratio: 4/3;
             cursor: pointer;
-            background: #000;
-            box-shadow: var(--shadow-md);
-            transition: var(--transition);
         }
 
-        .realisation-item:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        /* Images de réalisation */
-        .realisation-img {
+        .portfolio-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.6s ease;
         }
 
-        .realisation-item:hover .realisation-img {
-            transform: scale(1.1);
-        }
-
-        /* Vidéos de réalisation */
-        .realisation-video-container {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #000;
-            position: relative;
-        }
-
-        .realisation-video-container video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .play-button {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            background-color: rgba(37, 99, 235, 0.9);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            z-index: 10;
-            transition: var(--transition);
-        }
-
-        .realisation-item:hover .play-button {
-            background-color: var(--primary-color);
-            transform: scale(1.1);
-        }
-
-        .realisation-overlay {
+        .portfolio-overlay {
             position: absolute;
             inset: 0;
             background: linear-gradient(to top, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.4));
@@ -649,12 +599,10 @@
             transition: all 0.4s ease;
         }
 
-        .realisation-item:hover .realisation-overlay {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .portfolio-item:hover .portfolio-img { transform: scale(1.1); }
+        .portfolio-item:hover .portfolio-overlay { opacity: 1; transform: translateY(0); }
 
-        .realisation-category {
+        .portfolio-cat {
             font-size: 0.8rem;
             color: var(--accent-color);
             text-transform: uppercase;
@@ -663,28 +611,117 @@
             font-weight: 600;
         }
 
-        .realisation-title {
+        .portfolio-title {
             font-size: 1.5rem;
             font-family: 'Inter', sans-serif;
             font-weight: 700;
         }
 
-        .video-badge {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background-color: rgba(37, 99, 235, 0.95);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            z-index: 5;
+        /* --- TÉMOIGNAGES VIDÉO --- */
+        .testimonials-video {
+            background-color: var(--bg-white);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: var(--bg-white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            text-align: center;
+        }
+
+        .testimonial-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-8px);
+        }
+
+        .video-container {
+            width: 100%;
+            position: relative;
+            background: #000;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            flex: 1;
+            min-height: 50px;
             display: flex;
             align-items: center;
+            justify-content: center;
+        }
+
+        .video-container video {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .testimonial-info {
+            padding: 1rem;
+        }
+
+        .testimonial-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.6rem;
+            color: var(--secondary-color);
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+        }
+
+        .testimonial-role {
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .testimonial-text {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            line-height: 1.65;
+            margin-bottom: 1.2rem;
+            font-style: italic;
+        }
+
+        .stars {
+            display: flex;
             gap: 0.5rem;
+            color: var(--accent-color);
+            font-size: 0.95rem;
+        }
+
+        .stars i {
+            color: #fbbf24;
+        }
+
+        @media (max-width: 768px) {
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* --- CONTACT --- */
@@ -962,451 +999,584 @@
 
         @media (max-width: 768px) {
             .nav-links { gap: 1.5rem; }
+            .nav-links a { font-size: 0.85rem; }
             .hamburger { display: block; }
-            .section-header h2 { font-size: 2rem; }
-            .hero-content h1 { font-size: 2.5rem; }
+            .nav-links.active { display: flex; }
+            .hero-content h1 { font-size: 2.2rem; }
             .hero-content p { font-size: 1rem; }
-            .stats-grid { grid-template-columns: 1fr 1fr; }
-            .realisations-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr; }
+            .section-header h2 { font-size: 2rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+            .section-padding { padding: 4rem 0; }
+            .about-content h2 { font-size: 1.8rem; }
+            .team-grid { grid-template-columns: 1fr; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+            .footer-grid { gap: 2rem; }
+            .contact-container { grid-template-columns: 1fr; gap: 2rem; }
+            .contact-info-panel, .contact-form-panel { padding: 2rem; }
+        }
+
+        @media (max-width: 480px) {
+            .container { padding: 0 16px; }
+            .hero-content h1 { font-size: 1.8rem; }
+            .section-padding { padding: 2.5rem 0; }
+            .stats-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
+    <!-- Header Navigation -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <img src="logok.png" alt="Kagon's Logo" id="logoImg">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#apropos">Agence</a></li>
+                <li><a href="#equipe">Équipe</a></li>
+                <li><a href="#realisations">Réalisations</a></li>
+                <li><a href="#contact" class="btn btn-primary">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </nav>
+    </header>
 
-<!-- HEADER -->
-<header>
-    <nav class="container">
-        <div class="logo">
-            <img src="kagons-logo.png" alt="Kagon's Logo">
-        </div>
-        <div class="nav-links">
-            <a href="#poles">Pôles</a>
-            <a href="#about">À Propos</a>
-            <a href="#team">Équipe</a>
-            <a href="#realisations">Réalisations</a>
-            <a href="#contact">Contact</a>
-        </div>
-        <div class="hamburger">
-            <i class="fas fa-bars"></i>
-        </div>
-    </nav>
-</header>
-
-<!-- HERO SECTION -->
-<section class="hero">
-    <div class="container">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1>Solutions Digitales <span>360°</span></h1>
-                <p>Transformez votre visibilité en résultats mesurables. Marketing, Création, Tech & Production.</p>
-                <button class="btn btn-primary">
-                    <i class="fas fa-rocket"></i> Démarrer
-                </button>
-            </div>
-            <div class="hero-visual">
-                <img src="equipe.jpg" alt="Kagon's Team" class="hero-img-main">
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- POLES SECTION -->
-<section id="poles" class="poles-section section-padding">
-    <div class="container">
-        <div class="section-header">
-            <h2>Nos Pôles d'Expertise</h2>
-            <p>Une approche globale pour amplifier votre présence digitale</p>
-        </div>
-        <div class="poles-grid">
-            <div class="pole-card">
-                <div class="pole-icon"><i class="fas fa-chart-line"></i></div>
-                <h3>Stratégie Marketing</h3>
-                <ul class="pole-list">
-                    <li><i class="fas fa-check-circle"></i> Audit & Consulting</li>
-                    <li><i class="fas fa-check-circle"></i> Plans d'action</li>
-                    <li><i class="fas fa-check-circle"></i> ROI Optimisé</li>
-                </ul>
-            </div>
-            <div class="pole-card">
-                <div class="pole-icon"><i class="fas fa-palette"></i></div>
-                <h3>Création & Design</h3>
-                <ul class="pole-list">
-                    <li><i class="fas fa-check-circle"></i> Branding Complet</li>
-                    <li><i class="fas fa-check-circle"></i> UX/UI Design</li>
-                    <li><i class="fas fa-check-circle"></i> Contenu Visuel</li>
-                </ul>
-            </div>
-            <div class="pole-card">
-                <div class="pole-icon"><i class="fas fa-video"></i></div>
-                <h3>Production Vidéo</h3>
-                <ul class="pole-list">
-                    <li><i class="fas fa-check-circle"></i> Tournage Pro</li>
-                    <li><i class="fas fa-check-circle"></i> Montage Créatif</li>
-                    <li><i class="fas fa-check-circle"></i> Animation 3D</li>
-                </ul>
-            </div>
-            <div class="pole-card">
-                <div class="pole-icon"><i class="fas fa-code"></i></div>
-                <h3>Technologie</h3>
-                <ul class="pole-list">
-                    <li><i class="fas fa-check-circle"></i> Web Development</li>
-                    <li><i class="fas fa-check-circle"></i> Intégrations</li>
-                    <li><i class="fas fa-check-circle"></i> Automation</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- STATS SECTION -->
-<section class="stats">
-    <div class="container">
-        <div class="stats-grid">
-            <div class="stat-item">
-                <h3>50+</h3>
-                <p>Projets Réussis</p>
-            </div>
-            <div class="stat-item">
-                <h3>30+</h3>
-                <p>Clients Satisfaits</p>
-            </div>
-            <div class="stat-item">
-                <h3>5ans</h3>
-                <p>D'Expérience</p>
-            </div>
-            <div class="stat-item">
-                <h3>100%</h3>
-                <p>Dédication</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ABOUT SECTION -->
-<section id="about" class="about section-padding">
-    <div class="container">
-        <div class="about-wrapper">
-            <div class="about-img-grid">
-                <img src="Marketing.jpg" alt="Marketing Strategy">
-            </div>
-            <div class="about-content">
-                <span class="badge">À PROPOS</span>
-                <h2>Qui sommes-nous ?</h2>
-                <p>Kagon's est bien plus qu'une agence. C'est un partenaire stratégique dédié à transformer votre vision en impact mesurable.</p>
-                <p>Notre équipe pluridisciplinaire combine expertise marketing, créativité sans limite et technologie de pointe pour créer des solutions digitales qui font la différence.</p>
-                <div class="vision-box">
-                    <h4>Notre Mission</h4>
-                    <p>"Amplifier votre présence digitale pour générer des résultats exceptionnels"</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <span class="badge">Agence Marketing Digital</span>
+                    <h1>Propulsez votre marque avec une <span>stratégie</span></h1>
+                    <p>Kagon's Digital Agency accompagne les entreprises et les entrepreneurs à N'Djamena et en Afrique à générer plus de clients grâce à la publicité digitale, au SEO et aux stratégies de contenu.
+                         .</p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">Auditer mon projet <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="#poles" class="btn btn-outline">Découvrir nos pôles</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <img src="Marketing.jpg" alt="Agence Marketing" class="hero-img-main">
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- TEAM SECTION -->
-<section id="team" class="team section-padding">
-    <div class="container">
-        <div class="section-header">
-            <h2>Notre Équipe</h2>
-            <p>Experts passionnés et créatifs</p>
-        </div>
-        <div class="team-grid">
-            <div class="team-card">
-                <div class="team-img-wrapper">
-                    <img src="equipe.jpg" alt="Équipe Kagon's" class="team-img">
+    <!-- Poles Section -->
+    <section id="poles" class="section-padding poles-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Nos Pôles</span>
+                <h2>Nos Domaines d'Expertise</h2>
+                <p>Découvrez les services spécialisés proposés par Kagon's Digital Agency pour transformer votre vision en réalité.</p>
+            </div>
+            <div class="poles-grid">
+                <div class="pole-card">
+                    <div class="pole-icon">
+                        <i class="fa-solid fa-bullhorn"></i>
+                    </div>
+                    <h3>Publicité Digitale</h3>
+                    <p>Maximisez votre visibilité en ligne avec nos campagnes publicitaires intelligentes sur Google, Meta et autres plateformes.</p>
+                    <ul class="pole-list">
+                        <li><i class="fa-solid fa-check"></i> Google Ads</li>
+                        <li><i class="fa-solid fa-check"></i> Meta Ads (Facebook & Instagram)</li>
+                        <li><i class="fa-solid fa-check"></i> TikTok Ads</li>
+                        <li><i class="fa-solid fa-check"></i> LinkedIn Ads</li>
+                    </ul>
                 </div>
-                <div class="team-info">
-                    <span class="team-role">Équipe Créative</span>
-                    <h3 class="team-name">Kagon's Team</h3>
-                    <div class="team-socials">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                <div class="pole-card">
+                    <div class="pole-icon">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <h3>SEO & SEM</h3>
+                    <p>Améliorez votre classement dans les moteurs de recherche et attirez des visiteurs qualifiés.</p>
+                    <ul class="pole-list">
+                        <li><i class="fa-solid fa-check"></i> Optimisation on-page</li>
+                        <li><i class="fa-solid fa-check"></i> Link Building</li>
+                        <li><i class="fa-solid fa-check"></i> Content Marketing</li>
+                        <li><i class="fa-solid fa-check"></i> Audit technique SEO</li>
+                    </ul>
+                </div>
+                <div class="pole-card">
+                    <div class="pole-icon">
+                        <i class="fa-solid fa-pen-fancy"></i>
+                    </div>
+                    <h3>Stratégie & Contenu</h3>
+                    <p>Créons ensemble une stratégie marketing cohérente pour votre marque et générez un contenu engageant.</p>
+                    <ul class="pole-list">
+                        <li><i class="fa-solid fa-check"></i> Stratégie marketing</li>
+                        <li><i class="fa-solid fa-check"></i> Création de contenu</li>
+                        <li><i class="fa-solid fa-check"></i> Brand positioning</li>
+                        <li><i class="fa-solid fa-check"></i> Social media strategy</li>
+                    </ul>
+                </div>
+                <div class="pole-card">
+                    <div class="pole-icon">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <h3>Développement Web</h3>
+                    <p>Des sites web performants, responsive et optimisés pour la conversion et le SEO.</p>
+                    <ul class="pole-list">
+                        <li><i class="fa-solid fa-check"></i> Sites web modernes</li>
+                        <li><i class="fa-solid fa-check"></i> E-commerce</li>
+                        <li><i class="fa-solid fa-check"></i> Applications web</li>
+                        <li><i class="fa-solid fa-check"></i> Optimisation performance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>50+</h3>
+                    <p>Clients Satisfaits</p>
+                </div>
+                <div class="stat-item">
+                    <h3>150+</h3>
+                    <p>Projets Réalisés</p>
+                </div>
+                <div class="stat-item">
+                    <h3>40+</h3>
+                    <p>Experts Formés</p>
+                </div>
+                <div class="stat-item">
+                    <h3>2018</h3>
+                    <p>Depuis</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="apropos" class="section-padding about">
+        <div class="container">
+            <div class="about-wrapper">
+                <div class="about-img-grid">
+                    <img src="equipe.jpg" alt="Équipe Kagon's">
+                </div>
+                <div class="about-content">
+                    <span class="badge">À Propos</span>
+                    <h2>Qui est Kagon's ?</h2>
+                    <p>Kagon's Digital Agency est née en 2018 de la volonté de transformer le paysage numérique en Afrique. Basée à N'Djamena, nous mettons au service des entreprises et entrepreneurs notre expertise en marketing digital, développement web et formation.</p>
+                    <p>Notre mission : être le partenaire de confiance pour toutes vos ambitions numériques. Nos valeurs reposent sur l'engagement, l'innovation et l'impact mesurable.</p>
+                    
+                    <div class="vision-box">
+                        <h4>🎯 Notre Vision</h4>
+                        <p>"Faire du digital un levier de croissance pour chaque entreprise africaine."</p>
+                    </div>
+
+                    <p style="margin-top: 1.5rem; margin-bottom: 0;">Avec plus de 50 clients satisfaits et 150+ projets réalisés, nous prouvons chaque jour qu'une agence africaine peut rivaliser avec les meilleures agences internationales. Rejoignez-nous pour transformer votre présence numérique ! 🚀</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="equipe" class="section-padding team">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Équipe</span>
+                <h2>Notre Équipe</h2>
+                <p>Rencontrez les experts passionnés qui portent Kagon's vers le succès.</p>
+            </div>
+            <div class="team-grid">
+                <!-- Team Member 1 -->
+                <div class="team-card">
+                    <div class="team-img-wrapper">
+                        <img src="https://z-cdn-media.chatglm.cn/files/955620f0-6d79-44f4-8d34-4cde92c07c2d.jpg?auth_key=1875761071-e84b3701ba1647af96a5c70e6b85dc86-0-5b9150a2dfb3acda0f858ad5e8d64642" alt="PDG" class="team-img">
+                    </div>
+                    <div class="team-info">
+                        <span class="team-role">Directeur Général(DG)</span>
+                        <h3 class="team-name">Kagonbe Guinbé Innocent</h3>
+                        <div class="team-socials">
+                            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="team-card">
+                    <div class="team-img-wrapper">
+                        <img src="https://z-cdn-media.chatglm.cn/files/d1e4bd14-359c-41ad-bb9a-7bbbee62ddcb.jpg?auth_key=1875761609-d247ed4aefe44b0ebdb5f1053a8621bf-0-d5f9d45bd92c15bcf58846bd027d0c95" alt="Directeur Général" class="team-img">
+                    </div>
+                    <div class="team-info">
+                        <span class="team-role">Directeur Commercial (DC)</span>
+                        <h3 class="team-name">Allasra Bonheur</h3>
+                        <div class="team-socials">
+                            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="team-card">
+                    <div class="team-img-wrapper">
+                        <img src="https://z-cdn-media.chatglm.cn/files/28747b76-f09d-4480-a5ae-96e7a9c34ea9.jpg?auth_key=1875755498-9ef5612306934396b7ba1d7e44bfad61-0-44f50a08d82e51498ee27f6e45ce56da" alt="DGA & Comptable" class="team-img">
+                    </div>
+                    <div class="team-info">
+                        <span class="team-role">Directeur Administratif & Financier (DAF)</span>
+                        <h3 class="team-name">Douganon Laschakbe Bertrand</h3>
+                        <div class="team-socials">
+                            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="team-card">
+                    <div class="team-img-wrapper">
+                        <img src="https://z-cdn-media.chatglm.cn/files/b2089022-878b-4bb7-ad67-aa43949366bf.jpg?auth_key=1875761609-dc083dcc0bf34f7aa49911af22a58caa-0-8b5f1b18f1c491a9c1daf13e54e9e968" alt="Responsable Marketing & Service Hôtesse" class="team-img">
+                    </div>
+                    <div class="team-info">
+                        <span class="team-role">Directrice Marketing & Responsable Hôtesse</span>
+                        <h3 class="team-name">Morom Ndodjita Marlyse</h3>
+                        <div class="team-socials">
+                            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 5 -->
+                <div class="team-card">
+                    <div class="team-img-wrapper">
+                        <img src="Zod.jpeg" alt="Informaticien & Directeur Technique" class="team-img">
+                    </div>
+                    <div class="team-info">
+                        <!-- TITRE PRO MODIFIÉ : Directeur Technique & Développement Web -->
+                        <span class="team-role">Directeur Technique & Développement Web</span>
+                        <h3 class="team-name">Langheu Marcel</h3>
+                        <div class="team-socials">
+                            <a href="#"><i class="fa-brands fa-github"></i></a>
+                            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- RÉALISATIONS SECTION -->
-<section id="realisations" class="realisations section-padding">
-    <div class="container">
-        <div class="section-header">
-            <h2>Nos Réalisations</h2>
-            <p>Découvrez nos projets en production vidéo et création visuelle</p>
-        </div>
-        <div class="realisations-grid">
-            <!-- VIDÉO 1 -->
-            <div class="realisation-item">
-                <div class="realisation-video-container">
-                    <video playsinline muted loop onmouseover="this.play()" onmouseout="this.pause()">
-                        <source src="VID-20260416-WA0019.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <div class="play-button">
-                    <i class="fas fa-play"></i>
-                </div>
-                <span class="video-badge"><i class="fas fa-video"></i> Vidéo</span>
-                <div class="realisation-overlay">
-                    <span class="realisation-category">Production Vidéo</span>
-                    <h3 class="realisation-title">Projet 1 - Production</h3>
-                </div>
+    <!-- Portfolio/Realizations Section -->
+    <section id="realisations" class="section-padding portfolio">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Portfolio</span>
+                <h2>Nos Réalisations</h2>
+                <p>Découvrez les projets qui démontrent notre expertise et notre engagement envers l'excellence.</p>
             </div>
-
-            <!-- VIDÉO 2 -->
-            <div class="realisation-item">
-                <div class="realisation-video-container">
-                    <video playsinline muted loop onmouseover="this.play()" onmouseout="this.pause()">
-                        <source src="VID-20260416-WA0020.mp4" type="video/mp4">
-                    </video>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="IMG-20260309-WA0016.jpg" alt="Projet 1" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <p class="portfolio-cat">Publicité Digitale</p>
+                        <h3 class="portfolio-title">Campagne publicitaire réussie</h3>
+                    </div>
                 </div>
-                <div class="play-button">
-                    <i class="fas fa-play"></i>
+                <div class="portfolio-item">
+                    <img src="IMG-20260313-WA0004.jpg" alt="Projet 2" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <p class="portfolio-cat">Développement Web</p>
+                        <h3 class="portfolio-title">Site E-Commerce Moderne</h3>
+                    </div>
                 </div>
-                <span class="video-badge"><i class="fas fa-video"></i> Vidéo</span>
-                <div class="realisation-overlay">
-                    <span class="realisation-category">Production Vidéo</span>
-                    <h3 class="realisation-title">Projet 2 - Production</h3>
+                <div class="portfolio-item">
+                    <img src="IMG-20260413-WA0007.jpg" alt="Projet 3" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <p class="portfolio-cat">Stratégie Marketing</p>
+                        <h3 class="portfolio-title">Stratégie de contenu engageante</h3>
+                    </div>
                 </div>
-            </div>
-
-            <!-- IMAGE 1 -->
-            <div class="realisation-item">
-                <img src="IMG-20260309-WA0016.jpg" alt="Réalisation 1" class="realisation-img">
-                <div class="realisation-overlay">
-                    <span class="realisation-category">Production Vidéo</span>
-                    <h3 class="realisation-title">Réalisation - Visuel 1</h3>
+                <div class="portfolio-item">
+                    <img src="IMG-20260513-WA0005.jpg" alt="Projet 4" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <p class="portfolio-cat">SEO</p>
+                        <h3 class="portfolio-title">Optimisation SEO réussie</h3>
+                    </div>
                 </div>
-            </div>
-
-            <!-- IMAGE 2 -->
-            <div class="realisation-item">
-                <img src="IMG-20260313-WA0004.jpg" alt="Réalisation 2" class="realisation-img">
-                <div class="realisation-overlay">
-                    <span class="realisation-category">Production Vidéo</span>
-                    <h3 class="realisation-title">Réalisation - Visuel 2</h3>
+                <div class="portfolio-item">
+                    <img src="IMG-20260513-WA0011.jpg" alt="Projet 5" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <p class="portfolio-cat">Branding</p>
+                        <h3 class="portfolio-title">Identité visuelle impactante</h3>
+                    </div>
                 </div>
-            </div>
-
-            <!-- IMAGE 3 -->
-            <div class="realisation-item">
-                <img src="IMG-20260413-WA0007.jpg" alt="Réalisation 3" class="realisation-img">
-                <div class="realisation-overlay">
-                    <span class="realisation-category">Production Vidéo</span>
-                    <h3 class="realisation-title">Réalisation - Visuel 3</h3>
+                <div class="portfolio-item">
+                    <img src="IMG-20260513-WA0013.jpg" alt="Projet 6" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <p class="portfolio-cat">Social Media</p>
+                        <h3 class="portfolio-title">Gestion de réseaux sociaux</h3>
+                    </div>
                 </div>
-            </div>
-
-            <!-- IMAGE 4 -->
-            <div class="realisation-item">
-                <img src="IMG-20260513-WA0005.jpg" alt="Réalisation 4" class="realisation-img">
-                <div class="realisation-overlay">
-                    <span class="realisation-category">Production Vidéo</span>
-                    <h3 class="realisation-title">Réalisation - Visuel 4</h3>
+                <div class="portfolio-item">
+                    <img src="IMG-20260513-WA0015.jpg" alt="Projet 7" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <p class="portfolio-cat">Formation, Événements & Communauté</p>
+                        <h3 class="portfolio-title">Formation Étudiants au Digital Marketing</h3>
+                    </div>
                 </div>
-            </div>
-
-            <!-- IMAGE 5 -->
-            <div class="realisation-item">
-                <img src="IMG-20260513-WA0011.jpg" alt="Réalisation 5" class="realisation-img">
-                <div class="realisation-overlay">
-                    <span class="realisation-category">Production Vidéo</span>
-                    <h3 class="realisation-title">Réalisation - Visuel 5</h3>
+                <div class="portfolio-item">
+                    <img src="IMG-20260513-WA0018.jpg" alt="Projet 8" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <p class="portfolio-cat">Formation, Événements & Communauté</p>
+                        <h3 class="portfolio-title">Atelier Entreprendre en Digital</h3>
+                    </div>
                 </div>
-            </div>
-
-            <!-- IMAGE 6 -->
-            <div class="realisation-item">
-                <img src="IMG-20260513-WA0013.jpg" alt="Réalisation 6" class="realisation-img">
-                <div class="realisation-overlay">
-                    <span class="realisation-category">Production Vidéo</span>
-                    <h3 class="realisation-title">Réalisation - Visuel 6</h3>
+                <div class="portfolio-item">
+                    <img src="IMG-20260513-WA0021.jpg" alt="Projet 9" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <p class="portfolio-cat">Formation, Événements & Communauté</p>
+                        <h3 class="portfolio-title">Formation, Événements & Communauté</h3>
+                    </div>
                 </div>
-            </div>
-
-            <!-- IMAGE 7 -->
-            <div class="realisation-item">
-                <img src="IMG-20260513-WA0015.jpg" alt="Réalisation 7" class="realisation-img">
-                <div class="realisation-overlay">
-                    <span class="realisation-category">Production Vidéo</span>
-                    <h3 class="realisation-title">Réalisation - Visuel 7</h3>
-                </div>
-            </div>
-
-            <!-- IMAGE 8 -->
-            <div class="realisation-item">
-                <img src="IMG-20260513-WA0018.jpg" alt="Réalisation 8" class="realisation-img">
-                <div class="realisation-overlay">
-                    <span class="realisation-category">Production Vidéo</span>
-                    <h3 class="realisation-title">Réalisation - Visuel 8</h3>
-                </div>
-            </div>
-
-            <!-- IMAGE 9 -->
-            <div class="realisation-item">
-                <img src="IMG-20260513-WA0021.jpg" alt="Réalisation 9" class="realisation-img">
-                <div class="realisation-overlay">
-                    <span class="realisation-category">Production Vidéo</span>
-                    <h3 class="realisation-title">Réalisation - Visuel 9</h3>
-                </div>
-            </div>
-
-            <!-- IMAGE 10 -->
-            <div class="realisation-item">
-                <img src="IMG-20260513-WA0022.jpg" alt="Réalisation 10" class="realisation-img">
-                <div class="realisation-overlay">
-                    <span class="realisation-category">Production Vidéo</span>
-                    <h3 class="realisation-title">Réalisation - Visuel 10</h3>
-                </div>
-            </div>
-
-            <!-- IMAGE 11 -->
-            <div class="realisation-item">
-                <img src="Zod.jpeg" alt="Réalisation 11" class="realisation-img">
-                <div class="realisation-overlay">
-                    <span class="realisation-category">Production Vidéo</span>
-                    <h3 class="realisation-title">Réalisation - Visuel 11</h3>
-                </div>
-            </div>
-
-            <!-- IMAGE 12 -->
-            <div class="realisation-item">
-                <img src="WhatsApp Image 2026-04-08 at 09.52.18.jpeg" alt="Réalisation 12" class="realisation-img">
-                <div class="realisation-overlay">
-                    <span class="realisation-category">Production Vidéo</span>
-                    <h3 class="realisation-title">Réalisation - Visuel 12</h3>
-                </div>
-            </div>
-
-            <!-- IMAGE 13 -->
-            <div class="realisation-item">
-                <img src="parchemin.jpg" alt="Réalisation 13" class="realisation-img">
-                <div class="realisation-overlay">
-                    <span class="realisation-category">Production Vidéo</span>
-                    <h3 class="realisation-title">Réalisation - Visuel 13</h3>
+                <div class="portfolio-item">
+                    <img src="IMG-20260513-WA0022.jpg" alt="Projet 10" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <p class="portfolio-cat">Formation, Événements & Communauté</p>
+                        <h3 class="portfolio-title">Formation, Événements & Communauté</h3>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- CONTACT SECTION -->
-<section id="contact" class="contact section-padding">
-    <div class="container">
-        <div class="section-header">
-            <h2>Parlons de Votre Projet</h2>
-            <p>Prêt à transformer votre vision ? Contactez-nous dès aujourd'hui</p>
-        </div>
-        <div class="contact-container">
-            <div class="contact-info-panel">
-                <div>
-                    <div class="contact-detail-row">
-                        <div class="contact-icon-box">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div>
-                            <h4>Adresse</h4>
-                            <p>Congo, Africa</p>
+    <!-- Testimonials Video Section -->
+    <section id="temoignages" class="section-padding testimonials-video">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Témoignages</span>
+                <h2>Ce que nos clients en disent</h2>
+                <p>Découvrez les histoires de réussite de nos partenaires à travers leurs témoignages vidéo.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="video-container">
+                        <video width="100%" height="315" controls style="width: 100%; height: auto;">
+                            <source src="VID-20260416-WA0020.mp4" type="video/mp4">
+                            Votre navigateur ne supporte pas les vidéos HTML5
+                        </video>
+                    </div>
+                    <div class="testimonial-info">
+                        <h3>Formé en Création de Contenu</h3>
+                        <p class="testimonial-role">Content Creator</p>
+                        <p class="testimonial-text">"Grâce à Kagon's, j'ai développé mes compétences en création de contenu. Vraiment profitable !"</p>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
                         </div>
                     </div>
-                    <div class="contact-detail-row">
-                        <div class="contact-icon-box">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div>
-                            <h4>Téléphone</h4>
-                            <p>+243 123 456 789</p>
-                        </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="video-container">
+                        <video width="100%" height="315" controls style="width: 100%; height: auto;">
+                            <source src="VID-20260416-WA0019.mp4" type="video/mp4">
+                            Votre navigateur ne supporte pas les vidéos HTML5
+                        </video>
                     </div>
-                    <div class="contact-detail-row">
-                        <div class="contact-icon-box">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div>
-                            <h4>Email</h4>
-                            <p>contact@kagons.cd</p>
+                    <div class="testimonial-info">
+                        <h3>Formé en E-Commerce</h3>
+                        <p class="testimonial-role">Consultant</p>
+                        <p class="testimonial-text">"La formation m'a donné les outils pour accompagner les entreprises en e-commerce. Excellent !"</p>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="contact-form-panel">
-                <form id="contactForm">
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label class="form-label">Prénom</label>
-                            <input type="text" class="form-input" name="firstName" required>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Contactez-nous</span>
+                <h2>Prêt à transformer votre présence numérique ?</h2>
+                <p>N'hésitez pas à nous contacter pour discuter de votre projet et découvrir comment Kagon's peut vous aider à atteindre vos objectifs.</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info-panel">
+                    <div>
+                        <div class="contact-detail-row">
+                            <div class="contact-icon-box">
+                                <i class="fa-solid fa-map-pin"></i>
+                            </div>
+                            <div>
+                                <h4 style="color: white; margin: 0; font-weight: 600;">Localisation</h4>
+                                <p style="margin: 0.5rem 0 0 0;">N'Djamena, Tchad</p>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label class="form-label">Nom</label>
-                            <input type="text" class="form-input" name="lastName" required>
+
+                        <div class="contact-detail-row">
+                            <div class="contact-icon-box">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 style="color: white; margin: 0; font-weight: 600;">Téléphone</h4>
+                                <p style="margin: 0.5rem 0 0 0;">+235 62 33 02 00</p>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label class="form-label">Email</label>
-                            <input type="email" class="form-input" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Téléphone</label>
-                            <input type="tel" class="form-input" name="phone">
-                        </div>
-                        <div class="form-group full">
-                            <label class="form-label">Message</label>
-                            <textarea class="form-input" name="message" rows="5" required></textarea>
+
+                        <div class="contact-detail-row">
+                            <div class="contact-icon-box">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 style="color: white; margin: 0; font-weight: 600;">Email</h4>
+                                <p style="margin: 0.5rem 0 0 0;">contact@kagons.com</p>
+                            </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">
-                        <i class="fas fa-paper-plane"></i> Envoyer
-                    </button>
-                </form>
+
+                    <div>
+                        <h4 style="color: white; margin-bottom: 1rem;">Suivez-nous</h4>
+                        <div style="display: flex; gap: 1rem;">
+                            <a href="#" style="width: 40px; height: 40px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-color); transition: var(--transition);" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                            <a href="#" style="width: 40px; height: 40px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-color); transition: var(--transition);" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">
+                                <i class="fa-brands fa-twitter"></i>
+                            </a>
+                            <a href="#" style="width: 40px; height: 40px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-color); transition: var(--transition);" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" style="width: 40px; height: 40px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-color); transition: var(--transition);" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-panel">
+                    <form id="contactForm">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label" for="name">Nom Complet</label>
+                                <input type="text" id="name" class="form-input" placeholder="Votre nom" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="email">Email</label>
+                                <input type="email" id="email" class="form-input" placeholder="votre@email.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="phone">Téléphone</label>
+                                <input type="tel" id="phone" class="form-input" placeholder="+235 XX XX XX XX">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="service">Service</label>
+                                <select id="service" class="form-input" required>
+                                    <option value="">Sélectionnez un service</option>
+                                    <option value="Publicité Digitale">Publicité Digitale</option>
+                                    <option value="SEO & SEM">SEO & SEM</option>
+                                    <option value="Stratégie & Contenu">Stratégie & Contenu</option>
+                                    <option value="Développement Web">Développement Web</option>
+                                    <option value="Formation">Formation</option>
+                                </select>
+                            </div>
+                            <div class="form-group full">
+                                <label class="form-label" for="message">Message</label>
+                                <textarea id="message" class="form-input" placeholder="Décrivez votre projet..." style="min-height: 150px; resize: vertical;" required></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Envoyer le Message</button>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- FOOTER -->
-<footer>
-    <div class="container">
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <h2><i class="fas fa-rocket"></i> Kagon's</h2>
-                <p>Transformez votre vision digitale en réalité mesurable.</p>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2><img src="logok.png" alt="Kagon's"> Kagon's</h2>
+                    <p>Transformez votre présence numérique avec l'expertise et l'innovation de Kagon's Digital Agency.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#poles">Nos Pôles</a></li>
+                        <li><a href="#apropos">L'Agence</a></li>
+                        <li><a href="#realisations">Réalisations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Légal</h4>
+                    <ul>
+                        <li><a href="#">Conditions d'utilisation</a></li>
+                        <li><a href="#">Politique de confidentialité</a></li>
+                        <li><a href="#">Cookies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Nous Contacter</h4>
+                    <ul>
+                        <li><a href="tel:+23562330200">+235 62 33 02 00</a></li>
+                        <li><a href="mailto:contact@kagons.com">contact@kagons.com</a></li>
+                        <li><a href="#">N'Djamena, Tchad</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-links">
-                <h4>Produits</h4>
-                <ul>
-                    <li><a href="#poles">Nos Services</a></li>
-                    <li><a href="#realisations">Portfolio</a></li>
-                    <li><a href="#team">Équipe</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>Ressources</h4>
-                <ul>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Guides</a></li>
-                    <li><a href="#">Cas d'Études</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>Suivez-nous</h4>
-                <ul>
-                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
-                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
-                    <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-                </ul>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Kagon's Digital Agency. Tous droits réservés. | Développé avec <span style="color: #f59e0b;">❤️</span> par Kagon's Team</p>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Kagon's Digital Agency. Tous droits réservés.</p>
-        </div>
-    </div>
-</footer>
+    </footer>
 
-<script>
-    // EmailJS initialization (if needed)
-    emailjs.init("YOUR_PUBLIC_KEY");
-</script>
+    <script>
+        // EmailJS Initialization
+        emailjs.init("YOUR_PUBLIC_KEY");
 
+        // Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const templateParams = {
+                from_name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                service: document.getElementById('service').value,
+                message: document.getElementById('message').value
+            };
+
+            emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", templateParams)
+                .then(function(response) {
+                    alert('Message envoyé avec succès!');
+                    document.getElementById('contactForm').reset();
+                }, function(error) {
+                    alert('Erreur lors de l\'envoi: ' + JSON.stringify(error));
+                });
+        });
+
+        // Hamburger Menu
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
