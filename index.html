@@ -495,7 +495,7 @@
         }
 
         .team-img-wrapper {
-            height: 320px;
+            height: 400px;
             overflow: hidden;
             position: relative;
             background-color: #f8fafc;
@@ -506,9 +506,10 @@
         }
 
         .team-img {
-            object-fit: contain;
-            max-height: 100%;
-            width: auto;
+            object-fit: cover;
+            object-position: center top;
+            width: 100%;
+            height: 100%;
             transition: transform 0.5s ease;
         }
 
@@ -575,13 +576,16 @@
             overflow: hidden;
             aspect-ratio: 4/3;
             cursor: pointer;
+            background-color: #f0f0f0;
         }
 
         .portfolio-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center top;
             transition: transform 0.6s ease;
+            display: block;
         }
 
         .portfolio-overlay {
@@ -596,6 +600,29 @@
             opacity: 0;
             transform: translateY(20px);
             transition: all 0.4s ease;
+        }
+
+        /* Testimonials Grid */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-video {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            box-shadow: var(--shadow-lg);
+            background: var(--bg-light);
+        }
+
+        .testimonial-video video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .portfolio-item:hover .portfolio-img { transform: scale(1.1); }
@@ -874,6 +901,217 @@
             width: 100%;
         }
 
+        /* --- CHATBOT WIDGET --- */
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .chatbot-toggle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .chatbot-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6);
+        }
+
+        .chatbot-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ef4444;
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        .chatbot-window {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 380px;
+            height: 500px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 40px rgba(0, 0, 0, 0.16);
+            display: none;
+            flex-direction: column;
+            opacity: 0;
+            transform: scale(0.95);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .chatbot-window.active {
+            display: flex;
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .chatbot-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chatbot-header h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .chatbot-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            background: #f8fafc;
+        }
+
+        .chatbot-message {
+            display: flex;
+            animation: messageSlide 0.3s ease;
+        }
+
+        @keyframes messageSlide {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .chatbot-message.bot {
+            justify-content: flex-start;
+        }
+
+        .chatbot-message.user {
+            justify-content: flex-end;
+        }
+
+        .chatbot-message p {
+            max-width: 70%;
+            padding: 0.75rem 1rem;
+            border-radius: 18px;
+            margin: 0;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            word-wrap: break-word;
+        }
+
+        .chatbot-message.bot p {
+            background: white;
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        .chatbot-message.user p {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .chatbot-input-group {
+            display: flex;
+            gap: 0.5rem;
+            padding: 1rem;
+            background: white;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .chatbot-input {
+            flex: 1;
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 0.75rem 1rem;
+            font-family: inherit;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .chatbot-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .chatbot-send {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .chatbot-send:hover {
+            background: var(--primary-dark);
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .chatbot-window {
+                width: 100%;
+                height: 100vh;
+                max-width: none;
+                border-radius: 0;
+                bottom: 0;
+                right: 0;
+            }
+
+            .chatbot-message p {
+                max-width: 85%;
+            }
+        }
+
         /* --- RESPONSIVE --- */
         @media (max-width: 1024px) {
             .hero-container, .about-wrapper, .contact-container { grid-template-columns: 1fr; }
@@ -921,6 +1159,7 @@
                     <li><a href="#apropos">Agence</a></li>
                     <li><a href="#equipe">Équipe</a></li>
                     <li><a href="#realisations">Réalisations</a></li>
+                    <li><a href="#temoignages">Témoignages</a></li>
                     <li><a href="#contact" class="btn btn-primary">Contact</a></li>
                 </ul>
             </nav>
@@ -1196,18 +1435,43 @@
                         </div>
                     </div>
                     <div class="portfolio-item">
-                        <img src="https://picsum.photos/seed/website/600/450" alt="Web & E-commerce" class="portfolio-img">
+                        <img src="IMG-20260513-WA0021.jpg" alt="Projet Client" class="portfolio-img">
                         <div class="portfolio-overlay">
-                            <span class="portfolio-cat">Web & E-commerce</span>
-                            <h3 class="portfolio-title">Web, Automatisation & E-commerce</h3>
+                            <span class="portfolio-cat">Réalisation</span>
+                            <h3 class="portfolio-title">Projet & Collaboration</h3>
                         </div>
                     </div>
                     <div class="portfolio-item">
-                        <img src="Marketing.jpg" alt="Événements & Formation" class="portfolio-img">
+                        <img src="IMG-20260513-WA0022.jpg" alt="Projet Client" class="portfolio-img">
                         <div class="portfolio-overlay">
-                            <span class="portfolio-cat">Formation & Événements</span>
-                            <h3 class="portfolio-title">Formation, Événements & Communauté</h3>
+                            <span class="portfolio-cat">Réalisation</span>
+                            <h3 class="portfolio-title">Projet & Collaboration</h3>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="temoignages" class="section-padding testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <span class="badge">Témoignages</span>
+                    <h2>Découvrez Nos Clients en Action</h2>
+                    <p>Écoutez les retours de nos partenaires satisfaits sur leurs expériences avec Kagon's Digital Agency.</p>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-video">
+                        <video width="100%" height="auto" controls style="border-radius: var(--border-radius);">
+                            <source src="VID-20260416-WA0020.mp4" type="video/mp4">
+                            Votre navigateur ne supporte pas la vidéo HTML5.
+                        </video>
+                    </div>
+                    <div class="testimonial-video">
+                        <video width="100%" height="auto" controls style="border-radius: var(--border-radius);">
+                            <source src=".mp4" type="video/mp4">
+                            Votre navigateur ne supporte pas la vidéo HTML5.
+                        </video>
                     </div>
                 </div>
             </div>
@@ -1310,6 +1574,7 @@
                         <li><a href="#poles">Nos Pôles</a></li>
                         <li><a href="#apropos">L'Agence</a></li>
                         <li><a href="#realisations">Réalisations</a></li>
+                        <li><a href="#temoignages">Témoignages</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
@@ -1333,6 +1598,29 @@
             </div>
         </div>
     </footer>
+
+    <!-- Chatbot Widget -->
+    <div id="chatbot-container" class="chatbot-container">
+        <div id="chatbot-window" class="chatbot-window">
+            <div class="chatbot-header">
+                <h3>Kagon's Assistant</h3>
+                <button id="chatbot-close" class="chatbot-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div id="chatbot-messages" class="chatbot-messages">
+                <div class="chatbot-message bot">
+                    <p>Bonjour 👋 ! Bienvenue chez Kagon's Digital Agency. Comment puis-je vous aider ?</p>
+                </div>
+            </div>
+            <div class="chatbot-input-group">
+                <input type="text" id="chatbot-input" class="chatbot-input" placeholder="Tapez votre message...">
+                <button id="chatbot-send" class="chatbot-send"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+        <button id="chatbot-toggle" class="chatbot-toggle" title="Ouvrir le chat">
+            <i class="fa-solid fa-comments"></i>
+            <span class="chatbot-badge">1</span>
+        </button>
+    </div>
 
     <!-- Scripts -->
     <script>
@@ -1475,6 +1763,99 @@
                         btn.disabled = false;
                     }, 3000);
                 });
+        });
+
+        // CHATBOT LOGIC
+        const chatbotToggle = document.getElementById('chatbot-toggle');
+        const chatbotWindow = document.getElementById('chatbot-window');
+        const chatbotClose = document.getElementById('chatbot-close');
+        const chatbotInput = document.getElementById('chatbot-input');
+        const chatbotSend = document.getElementById('chatbot-send');
+        const chatbotMessages = document.getElementById('chatbot-messages');
+        const chatbotBadge = document.querySelector('.chatbot-badge');
+
+        let userContact = null;
+        let conversationState = 'initial';
+
+        // Toggle chatbot window
+        chatbotToggle.addEventListener('click', () => {
+            chatbotWindow.classList.toggle('active');
+            if (chatbotWindow.classList.contains('active')) {
+                chatbotBadge.style.display = 'none';
+                chatbotInput.focus();
+            }
+        });
+
+        chatbotClose.addEventListener('click', () => {
+            chatbotWindow.classList.remove('active');
+        });
+
+        // Send message
+        function sendMessage() {
+            const message = chatbotInput.value.trim();
+            if (!message) return;
+
+            // Add user message
+            addMessage(message, 'user');
+            chatbotInput.value = '';
+
+            // Process based on conversation state
+            setTimeout(() => {
+                if (conversationState === 'initial') {
+                    addMessage('Merci ! Pour mieux vous aider, quel est votre besoin principal ?', 'bot');
+                    addMessage('1️⃣ Marketing digital\n2️⃣ Création de contenu\n3️⃣ Web & E-commerce\n4️⃣ Autre', 'bot');
+                    conversationState = 'asking_service';
+                } else if (conversationState === 'asking_service') {
+                    addMessage('Très bien ! 👍 Quel est votre email pour qu\'on vous recontacte ?', 'bot');
+                    conversationState = 'asking_email';
+                } else if (conversationState === 'asking_email') {
+                    if (validateEmail(message)) {
+                        userContact = message;
+                        addMessage('Parfait ! 📧 Dites-moi un peu plus sur votre projet...', 'bot');
+                        conversationState = 'asking_project';
+                    } else {
+                        addMessage('Email invalide. Veuillez entrer un email valide.', 'bot');
+                    }
+                } else if (conversationState === 'asking_project') {
+                    sendChatMessage(message);
+                    addMessage('Merci ! 🙏 Notre équipe vous recontactera très bientôt.', 'bot');
+                    conversationState = 'finished';
+                }
+            }, 500);
+        }
+
+        function addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `chatbot-message ${sender}`;
+            const p = document.createElement('p');
+            p.textContent = text;
+            messageDiv.appendChild(p);
+            chatbotMessages.appendChild(messageDiv);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
+        function validateEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function sendChatMessage(message) {
+            const templateParams = {
+                to_email: 'kagonsdigitalagency@gmail.com',
+                user_email: userContact || 'non fourni',
+                subject: 'Demande via Chatbot',
+                message: message
+            };
+
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                .catch(function(error) {
+                    console.log('Erreur lors de l\'envoi du message:', error);
+                });
+        }
+
+        chatbotSend.addEventListener('click', sendMessage);
+        chatbotInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
         });
     </script>
 </body>
